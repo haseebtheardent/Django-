@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% comment %} Get All Data {% endcomment %}
+    <h2 class="container pt-4  mt-4 alert alert-success">Simple Store</h2>
+    {% if  tablee %}
+    <div class="container">
+        <h2 class='alert alert-info'>Records</h2>
+        <table class="table table-bordered table-hover table-dark ">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone No</th>
+              <th>Birth Date</th>
+              <th>Membership</th>
+              <!-- Add more table headings for each field in your model -->
+            </tr>
+          </thead>
+          <tbody>
+            {% for d in table %}
+            <tr>
+              <td>{{ d.id }}</td> <!-- Index of the record -->
+              <td>{{ d.first_name}}</td> <!-- Replace 'field1' with the actual field name -->
+              <td>{{ d.last_name }}</td> <!-- Replace 'field2' with the actual field name -->
+              <td>{{ d.email }}</td> <!-- Replace 'field2' with the actual field name -->
+              <td>{{ d.phone }}</td> <!-- Replace 'field2' with the actual field name -->
+              <td>{{ d.birth_date }}</td> <!-- Replace 'field2' with the actual field name -->
+              <td>{{ d.membership }}</td> <!-- Replace 'field2' with the actual field name -->
+              <!-- Add more table cells for each field in your model -->
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+    <div class="container pt-4  mt-4 alert alert-danger">
+        <h2>No data Available</h2>
+    </div>
+    {% endif %}
+
+
+
+
+
+
+    {% comment %} Specific Record {% endcomment %}
+    {% if  data %}
+    <div class="container">
+        <h2 class='alert alert-info'>Records</h2>
+        <table class="table table-bordered table-hover ">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone No</th>
+              <th>Birth Date</th>
+              <th>Membership</th>
+              <!-- Add more table headings for each field in your model -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ data.id }}</td> <!-- Index of the record -->
+              <td>{{ data.first_name}}</td> <!-- Replace 'field1' with the actual field name -->
+              <td>{{ data.last_name }}</td> <!-- Replace 'field2' with the actual field name -->
+              <td>{{ data.email }}</td> <!-- Replace 'field2' with the actual field name -->
+              <td>{{ data.phone }}</td> <!-- Replace 'field2' with the actual field name -->
+              <td>{{ data.birth_date }}</td> <!-- Replace 'field2' with the actual field name -->
+              <td>{{ data.membership }}</td> <!-- Replace 'field2' with the actual field name -->
+              <!-- Add more table cells for each field in your model -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+    {% if error %}
+    <div class="container pt-4  mt-4 alert alert-danger">
+      <h1>{{error}}</h1>
+    </div>
+    {% endif %}
+    {% endif %}
+
+</body>
+</html>
