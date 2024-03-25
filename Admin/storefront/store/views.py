@@ -7,4 +7,6 @@ from django.db.models.functions import Concat
 
 
 def home(request):
-    return render(request, 'index.html')
+    customer = Customer.object.all()
+    dict = {'table': customer}
+    return render(request, 'index.html', dict)

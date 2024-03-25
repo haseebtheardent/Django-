@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container alert alert-dark">
+        <form action="" method="post" novalidate>
+           {% csrf_token %}
+           <div class="row">
+               <div class="col-12">
+                   <label for="{{ form.first_name.id_for_label}}"
+                   class='form-label fw-bolder fs-5 '>
+                  {{form.first_name.label}}
+
+                  </label>
+               </div>
+               <div class="col-12">
+                   {{form.first_name}}
+                   {% if  form.first_name.errors  %}
+                   <div class="alert alert-danger mt-2">
+                       {{ form.first_name.errors }}
+                   </div>
+                   {% endif %}
+
+               </div>
+               {% comment %} --------------------------- {% endcomment %}
+               <div class="row">
+                   <div class="col-12">
+                       <label for="{{ form.last_name.id_for_label}}"
+                       class='form-label fw-bolder fs-5 mt-2'>
+                      {{form.last_name.label}} 
+                      </label>
+                   </div>
+                   <div class="col-12">
+                       {{form.last_name}}
+                       {% if  form.last_name.errors  %}
+                       <div class="alert alert-danger mt-2">
+                           {{ form.last_name.errors }}
+                       </div>
+                       {% endif %}
+                   </div>
+
+               <div class="row">
+                   <div class="col-12">
+                       <label for="{{ form.email.id_for_label}}"
+                       class='form-label fw-bolder fs-5 mt-2'>
+                      {{form.email.label}}
+
+                      </label>
+                   </div>
+                   <div class="col-12">
+                       {{form.email}}
+                       {% if  form.email.errors  %}
+                       <div class="alert alert-danger mt-2">
+                           {{ form.email.errors }}
+                       </div>
+                       {% endif %}
+                   </div>
+
+               <div class="row">
+                   <div class="col-12">
+                       <label for="{{ form.phone_no.id_for_label}}"
+                       class='form-label fw-bolder fs-5 mt-2'>
+                      {{form.phone_no.label}}
+                      </label>
+                   </div>
+                   <div class="col-12">
+                       {{form.phone_no}}
+                       {% if  form.phone_no.errors  %}
+                       <div class="alert alert-danger mt-2">
+                           {{ form.phone_no.errors }}
+                       </div>
+                       {% endif %}
+                   </div>
+               <div class="d-grid gap-2 mt-3">
+                   <input type="submit" value="Submit" class="btn btn-outline-secondary">
+               </div>
+               {% if messages %}
+               <div class="alert alert-success mt-2" role="alert">
+               {% for m in messages  %}
+               {{m}}
+               </div>
+               {% endfor %}
+               {% endif %}
+           </div> 
+       </form>
+
+
+       </div>
+     </form>
+</body>
+</html>

@@ -59,16 +59,17 @@
   {% if  table %}
   <div class="container">
       <h2 class='alert alert-info'>Records</h2>
-      <table class="table table-bordered table-hover table-dark ">
+      <table class="table table-bordered  table-hover ">
         <thead>
           <tr>
             <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Phone No</th>
-            <th>Birth Date</th>
-            <th>Membership</th>
+            <th>Slug</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Inventory</th>
+            <th>Collection_id</th>
+            {% comment %} <th>Collection_id</th> {% endcomment %}
             <!-- Add more table headings for each field in your model -->
           </tr>
         </thead>
@@ -76,12 +77,13 @@
           {% for d in table %}
           <tr>
             <td>{{ d.id }}</td> <!-- Index of the record -->
-            <td>{{ d.first_name}}</td> <!-- Replace 'field1' with the actual field name -->
-            <td>{{ d.last_name }}</td> <!-- Replace 'field2' with the actual field name -->
-            <td>{{ d.email }}</td> <!-- Replace 'field2' with the actual field name -->
-            <td>{{ d.phone }}</td> <!-- Replace 'field2' with the actual field name -->
-            <td>{{ d.birth_date }}</td> <!-- Replace 'field2' with the actual field name -->
-            <td>{{ d.membership }}</td> <!-- Replace 'field2' with the actual field name -->
+            <td>{{ d.slug}}</td> <!-- Replace 'field1' with the actual field name -->
+            <td>{{ d.title }}</td> <!-- Replace 'field2' with the actual field name -->
+            <td>{{ d.description }}</td> <!-- Replace 'field2' with the actual field name -->
+            <td>{{ d.price }}</td> <!-- Replace 'field2' with the actual field name -->
+            <td>{{ d.inventory }}</td> <!-- Replace 'field2' with the actual field name -->
+            <td>{{ d.collection_id }}</td>
+           <!-- Replace 'field2' with the actual field name -->
             <!-- Add more table cells for each field in your model -->
           </tr>
           {% endfor %}
@@ -90,7 +92,7 @@
     </div>
   {% else %}
   <div class="container pt-4  mt-4 alert alert-danger">
-      <h2>No data Available</h2>
+      <h2>NO</h2>
   </div>
   {% endif %}
 
